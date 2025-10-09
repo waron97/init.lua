@@ -28,10 +28,7 @@ return {
     },
 
     config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-            }
-        })
+        -- conform setup is handled in conform.lua
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
@@ -97,7 +94,7 @@ return {
                 "gopls",
                 "tailwindcss",
                 "ts_ls",
-                "eslint"
+                -- "eslint"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -163,33 +160,7 @@ return {
                         },
                     })
                 end,
-                ["eslint"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.eslint.setup({
-                        capabilities = capabilities,
-                        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
-                        settings = {
-                            eslint = {
-                                validate = "on",
-                                lintTask = {
-                                    enable = true,
-                                },
-                                format = {
-                                    enable = true,
-                                },
-                            },
-                        },
-                        on_attach = function(client, bufnr)
-                            -- Enable format on save for ESLint
-                            if client.server_capabilities.documentFormattingProvider then
-                                vim.api.nvim_create_autocmd("BufWritePre", {
-                                    buffer = bufnr,
-                                    command = "EslintFixAll",
-                                })
-                            end
-                        end,
-                    })
-                end,
+
             }
         })
 
