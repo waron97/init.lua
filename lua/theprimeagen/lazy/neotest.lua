@@ -5,15 +5,11 @@ return {
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "fredrikaverpil/neotest-golang",
-        "leoluz/nvim-dap-go",
     },
     config = function()
         require("neotest").setup({
             adapters = {
-                require("neotest-golang")({
-                    dap = { justMyCode = false },
-                }),
+                -- Add other language adapters here as needed
             },
         })
 

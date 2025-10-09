@@ -6,7 +6,6 @@ return {
             "prettier",
             "stylua",
             "clang-format",
-            "gofmt",
         },
     },
 }
