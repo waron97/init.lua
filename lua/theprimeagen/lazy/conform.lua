@@ -14,12 +14,26 @@ return {
 				go = { "gofmt" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
+				json = { "prettier" },
+				jsonc = { "prettier" },
+				css = { "prettier" },
+				scss = { "prettier" },
+				less = { "prettier" },
+				html = { "prettier" },
+				markdown = { "prettier" },
+				yaml = { "prettier" },
+				yml = { "prettier" },
+				vue = { "prettier" },
+				svelte = { "prettier" },
 				elixir = { "mix" },
 			},
 			formatters = {
 				["clang-format"] = {
 					prepend_args = { "-style=file", "-fallback-style=LLVM" },
 				},
+				-- Prettier will now use .prettierrc files from your projects
 			},
 		})
 
