@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("conform").setup({
 			format_on_save = {
-				timeout_ms = 5000,
+				timeout_ms = 0,
 				lsp_format = "fallback",
 				pattern = "*", -- format all file types
 			},
@@ -28,6 +28,7 @@ return {
 				vue = { "prettier" },
 				svelte = { "prettier" },
 				elixir = { "mix" },
+				python = { "black" },
 			},
 			formatters = {
 				["clang-format"] = {
