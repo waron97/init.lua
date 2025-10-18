@@ -22,13 +22,12 @@ return {
 				scss = { "prettier" },
 				less = { "prettier" },
 				html = { "prettier" },
-				markdown = { "prettier" },
 				yaml = { "prettier" },
 				yml = { "prettier" },
 				vue = { "prettier" },
 				svelte = { "prettier" },
 				elixir = { "mix" },
-				python = { "black" },
+				python = { "ruff_format" },
 			},
 			formatters = {
 				["clang-format"] = {
