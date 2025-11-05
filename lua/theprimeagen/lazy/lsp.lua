@@ -87,6 +87,9 @@ return {
 			move_cursor_key = "<M-c>", -- imap, use nvim_set_current_win to move cursor between current win and floating
 		})
 
+		-- Set up custom signature help keybinding
+		vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "Signature help" })
+
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {

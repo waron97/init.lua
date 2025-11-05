@@ -27,7 +27,7 @@ return {
 				vue = { "prettier" },
 				svelte = { "prettier" },
 				elixir = { "mix" },
-				python = { "ruff_format" },
+				python = { "black" },
 			},
 			formatters = {
 				["clang-format"] = {
