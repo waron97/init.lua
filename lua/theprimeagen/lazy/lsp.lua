@@ -173,6 +173,15 @@ return {
 					lspconfig.ts_ls.setup({
 						capabilities = capabilities,
 						filetypes = { "typescript", "typescriptreact" }, -- Only TypeScript files
+						init_options = {
+							preferences = {
+								-- Set the preference to "non-relative"
+								importModuleSpecifierPreference = "non-relative",
+								-- Other preferences can be included here
+								includeCompletionsForModuleExports = true,
+								includeCompletionsForImportStatements = true,
+							},
+						},
 						settings = {
 							typescript = {
 								validate = true,
