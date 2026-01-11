@@ -8,6 +8,8 @@ vim.api.nvim_create_user_command("Qa", "qa", {})
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { silent = true })
+
 vim.api.nvim_set_keymap("n", "<leader>tf", "<Plug>PlenaryTestFile", { noremap = false, silent = false })
 
 vim.keymap.set("n", "J", "mzJ`z")
