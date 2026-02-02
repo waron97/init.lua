@@ -2,6 +2,8 @@ require("theprimeagen.set")
 require("theprimeagen.remap")
 require("theprimeagen.lazy_init")
 
+vim.g.python3_host_prog = "/home/aronwinkler/.pyenv/shims/python3"
+
 -- DO.not
 -- DO NOT INCLUDE THIS
 

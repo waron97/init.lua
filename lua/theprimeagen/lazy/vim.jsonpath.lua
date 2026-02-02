@@ -1,3 +1,0 @@
-return {
-	"mogelbrod/vim-jsonpath",
-}
