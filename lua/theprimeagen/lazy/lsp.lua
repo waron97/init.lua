@@ -172,6 +172,12 @@ return {
 					local lspconfig = require("lspconfig")
 					lspconfig.ts_ls.setup({
 						capabilities = capabilities,
+						init_options = {
+							preferences = {
+								importModuleSpecifierPreference = "non-relative",
+								importModuleSpecifierEnding = "minimal",
+							},
+						},
 						filetypes = { "typescript", "typescriptreact" }, -- Only TypeScript files
 						init_options = {
 							preferences = {
