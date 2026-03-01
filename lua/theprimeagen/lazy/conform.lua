@@ -28,6 +28,7 @@ return {
 				svelte = { "prettierd" },
 				elixir = { "mix" },
 				python = { "black" },
+				xml = { "xmlformatter" },
 			},
 			formatters = {
 				["clang-format"] = {
