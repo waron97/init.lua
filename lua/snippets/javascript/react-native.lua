@@ -69,46 +69,45 @@ const styles = StyleSheet.create({{root: {{flex: 1}}}})
 	-- Styled View
 	s(
 		"sv",
-		fmt("<View style={{styles.{1}}}>{0}</View>", {
+		fmt("<View style={{styles.{1}}}>{2}</View>", {
 			i(1, "container"),
-			i(0), -- $0: The cursor ends up here inside the tags when you finish
+			i(0), -- This is the 2nd item in the list, so it uses {2}
 		})
 	),
 
 	-- useEffect
 	s(
 		"effect",
-		fmt("useEffect(() => {{{0}}}, [])", {
-			i(0), -- $0: Cursor lands right inside the block
+		fmt("useEffect(() => {{{1}}}, [])", {
+			i(0), -- This is the 1st item in the list, so it uses {1}
 		})
 	),
 
 	-- useMemo
 	s(
 		"memo",
-		fmt("useMemo(() => {{{0}}}, [])", {
-			i(0),
+		fmt("useMemo(() => {{{1}}}, [])", {
+			i(0), -- 1st item = {1}
 		})
 	),
 
-	-- Semantic Log (requires the `rep` node to mirror the first input!)
+	-- Semantic Log
 	s(
 		"semlog",
 		fmt("console.log('{1}', {2})", {
 			i(1, "variable"),
-			rep(1),
+			rep(1), -- 2nd item = {2}
 		})
 	),
 
 	-- ESLint Disable
-	-- (Since this is just plain text, we don't need `fmt`, just a text node)
 	s("esdis", t("// eslint-disable-next-line")),
 
 	-- Redux Token
 	s(
 		"token",
-		fmt("const {{token}} = useSelector{0}(state => state.auth)", {
-			i(0),
+		fmt("const {{token}} = useSelector{1}(state => state.auth)", {
+			i(0), -- 1st item = {1}
 		})
 	),
 
