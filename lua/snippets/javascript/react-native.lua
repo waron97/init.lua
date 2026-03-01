@@ -10,7 +10,6 @@ ls.add_snippets("javascript", {
 		"rnhc",
 		fmt(
 			[[
-import React from 'react'
 import {{ StyleSheet, View, Text }} from "react-native"
 
 // ----------------------------------------------------------------------------
