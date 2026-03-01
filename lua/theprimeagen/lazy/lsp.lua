@@ -30,6 +30,7 @@ return {
 	config = function()
 		-- conform setup is handled in conform.lua
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -247,7 +248,23 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback() -- If no snippet is active, just do a normal Tab
+					end
+				end, { "i", "s" }),
+
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
@@ -292,5 +309,8 @@ return {
 				prefix = "",
 			},
 		})
+
+		-- Load snippets
+		require("snippets.javascript.react-native")
 	end,
 }
