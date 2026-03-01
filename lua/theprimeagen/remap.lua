@@ -63,3 +63,6 @@ vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+
+-- Duplicate the selected lines downwards and re-select the new lines
+vim.keymap.set("v", "<leader>d", ":t'><CR>`[V`]", { silent = true, desc = "Duplicate selection down" })
